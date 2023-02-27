@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardElevation="10dp"
+    tools:ignore="HardcodedText"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/userpic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_baseline_person_24"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/userpic"
+            android:layout_toStartOf="@id/callbtn"
+            android:layout_marginTop="5dp"
+            android:text="Contact Name"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="25sp"/>
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/userpic"
+            android:layout_toStartOf="@id/callbtn"
+            android:layout_below="@+id/name"
+            android:padding="3dp"
+            android:textColor="@color/black"
+            android:text="number"/>
+
+        <ImageView
+            android:id="@+id/callbtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_baseline_call_24"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            tools:ignore="ContentDescription" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
