@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.yacontacts.database.Contacts
 import kotlinx.android.synthetic.main.contactrvlay.view.*
 
 class ContactAdapter(private val list:List<Contacts>):RecyclerView.Adapter<ContactAdapter.ViewHolder>(){
