@@ -18,7 +18,9 @@
         android:layout_marginTop="100dp"
         android:backgroundTint="@color/black"
         android:textColor="@color/black"
-        android:textSize="26sp"/>
+        android:inputType="text"
+        android:textSize="26sp"
+        android:importantForAutofill="no" />
     <EditText
         android:id="@+id/number"
         android:layout_width="300dp"
@@ -27,7 +29,9 @@
         android:backgroundTint="@color/black"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
+        android:inputType="phone"
         android:layout_marginTop="20dp"
-        android:textSize="26sp"/>
+        android:textSize="26sp"
+        android:importantForAutofill="no" />
 
 </LinearLayout>

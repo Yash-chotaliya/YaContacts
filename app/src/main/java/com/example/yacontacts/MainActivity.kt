@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         rv.layoutManager = LinearLayoutManager(this)
         viewmodel = ViewModelProvider(this)[ContactsViewModel::class.java]
         viewmodel.getAll.observe(this) { list ->
-            rv.adapter = ContactAdapter(list)
+            rv.adapter = ContactAdapter(this,list)
         }
 
         fab.setOnClickListener {
