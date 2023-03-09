@@ -10,23 +10,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.yacontacts.database.Contacts
 import com.example.yacontacts.database.ContactsViewModel
-import kotlinx.android.synthetic.main.activity_add_contact.*
-import kotlinx.android.synthetic.main.contactrvlay.*
-import kotlinx.android.synthetic.main.contactrvlay.name
-import kotlinx.android.synthetic.main.contactrvlay.number
-
+import com.example.yacontacts.databinding.ActivityAddContactBinding
 
 @Suppress("DEPRECATION")
 class AddContact : AppCompatActivity() {
+
+    private lateinit var binding : ActivityAddContactBinding
     private val gallaryPickCode = 100
     private lateinit var viewmodel: ContactsViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_contact)
+        binding = ActivityAddContactBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         viewmodel = ViewModelProvider(this)[ContactsViewModel::class.java]
 
-        contactpic.setOnClickListener {
+        binding.contactpic.setOnClickListener {
             uploadImage()
         }
 
@@ -43,7 +42,7 @@ class AddContact : AppCompatActivity() {
 
         if(resultCode== RESULT_OK){
             if(requestCode == gallaryPickCode){
-                contactpic.setImageURI(data?.data)
+                binding.contactpic.setImageURI(data?.data)
             }
         }
     }
@@ -62,8 +61,8 @@ class AddContact : AppCompatActivity() {
     }
 
     private fun savecontact(){
-        val x = name.text.toString()
-        val y = number.text.toString()
+        val x = binding.name.text.toString()
+        val y = binding.number.text.toString()
 
         if(x.isEmpty() || y.isEmpty()){
             Toast.makeText(this,"Error : No data inserted",Toast.LENGTH_SHORT).show()
