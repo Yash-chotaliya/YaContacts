@@ -11,10 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.yacontacts.database.Contacts
 import com.example.yacontacts.databinding.ContactrvlayBinding
 
-class ContactAdapter(private val context: Context, private val list:List<Contacts>):RecyclerView.Adapter<ContactAdapter.ViewHolder>(){
+class ContactAdapter(private val context: Context, private val list:List<Contacts>,private val listener:IContactAdapter):RecyclerView.Adapter<ContactAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ContactrvlayBinding.inflate(LayoutInflater.from(context),parent,false))
+        val binding = ViewHolder(ContactrvlayBinding.inflate(LayoutInflater.from(context),parent,false))
+        binding.delete.setOnClickListener {
+            listener.onItemClickedDelete(list[binding.adapterPosition].id)
+        }
+        return binding
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -35,6 +39,10 @@ class ContactAdapter(private val context: Context, private val list:List<Contact
         val name: TextView = itemBinding.name
         val number: TextView = itemBinding.number
         val callbtn : ImageView = itemBinding.callbtn
+        val delete:ImageView = itemBinding.delete
     }
+}
 
+interface IContactAdapter{
+    fun onItemClickedDelete(id:Int)
 }

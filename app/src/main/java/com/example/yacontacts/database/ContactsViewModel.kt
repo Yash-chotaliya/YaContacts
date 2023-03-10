@@ -24,4 +24,10 @@ class ContactsViewModel(application: Application):AndroidViewModel(application) 
             repository.insert(contacts)
         }
     }
+
+    fun delete(id:Int){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.delete(id)
+        }
+    }
 }

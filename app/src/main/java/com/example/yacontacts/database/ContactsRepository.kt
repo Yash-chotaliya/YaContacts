@@ -10,4 +10,8 @@ class ContactsRepository(private val contactsDao:ContactsDao) {
         contactsDao.insert(contacts)
     }
 
+    suspend fun delete(id:Int){
+        contactsDao.delete(id)
+    }
+
 }
