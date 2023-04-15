@@ -47,20 +47,21 @@
             android:textColor="@color/black"
             android:text="number"/>
 
-        <ImageView
+        <ImageButton
             android:id="@+id/callbtn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="9dp"
+            android:layout_toStartOf="@+id/delete"
             android:src="@drawable/ic_baseline_call_24"
+            android:backgroundTint="@color/white"
             tools:ignore="ContentDescription" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/delete"
             android:layout_width="20dp"
             android:layout_height="20dp"
+            android:backgroundTint="@color/white"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="14dp"

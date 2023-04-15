@@ -5,7 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yacontacts.database.Contacts
@@ -38,8 +38,8 @@ class ContactAdapter(private val context: Context, private val list:List<Contact
     class ViewHolder (itemBinding: ContactrvlayBinding):RecyclerView.ViewHolder(itemBinding.root){
         val name: TextView = itemBinding.name
         val number: TextView = itemBinding.number
-        val callbtn : ImageView = itemBinding.callbtn
-        val delete:ImageView = itemBinding.delete
+        val callbtn : ImageButton = itemBinding.callbtn
+        val delete:ImageButton = itemBinding.delete
     }
 }
 
