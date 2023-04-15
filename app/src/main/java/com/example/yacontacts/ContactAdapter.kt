@@ -25,7 +25,7 @@ class ContactAdapter(private val context: Context, private val list:List<Contact
         holder.name.text = list[position].name
         holder.number.text = list[position].number
         holder.callbtn.setOnClickListener {
-            val callIntent = Intent(Intent.ACTION_DIAL)
+            val callIntent = Intent(Intent.ACTION_CALL)
             callIntent.data = Uri.parse("tel:"+ list[position].number)
             context.startActivity(callIntent)
         }

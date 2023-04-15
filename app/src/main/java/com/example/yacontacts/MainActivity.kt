@@ -2,10 +2,12 @@ package com.example.yacontacts
 
 import android.app.Dialog
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yacontacts.database.ContactsViewModel
@@ -20,6 +22,8 @@ class MainActivity : AppCompatActivity(),IContactAdapter {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        checkPermissions()
 
         binding.rv.layoutManager = LinearLayoutManager(this)
         viewmodel = ViewModelProvider(this)[ContactsViewModel::class.java]
@@ -46,5 +50,10 @@ class MainActivity : AppCompatActivity(),IContactAdapter {
             viewmodel.delete(id)
             builder.dismiss()
         }
+    }
+
+    private fun checkPermissions(){
+        if(ActivityCompat.checkSelfPermission(this,android.Manifest.permission.CALL_PHONE)!=PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE),101)
     }
 }
